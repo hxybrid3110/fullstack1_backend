@@ -13,6 +13,7 @@ public class Product {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String description;
@@ -20,8 +21,37 @@ public class Product {
     private int price;
     private boolean available;
     private int quantity;
+
+    public String getImagename() {
+        return imagename;
+    }
+
+    public void setImagename(String imagename) {
+        this.imagename = imagename;
+    }
+
+    public String getImagetype() {
+        return imagetype;
+    }
+
+    public void setImagetype(String imagetype) {
+        this.imagetype = imagetype;
+    }
+
+    public byte[] getImagedata() {
+        return imagedata;
+    }
+
+    public void setImagedata(byte[] imagedata) {
+        this.imagedata = imagedata;
+    }
+
     private String category;
     private LocalDate releaseDate;
+    private String imagename;
+    private String imagetype;
+    @Lob
+    private byte[] imagedata;
 
     public Product() {}
     public Product(int id,String name, String description, String brand, int price, boolean available, int quantity, String category, LocalDate releaseDate) {
